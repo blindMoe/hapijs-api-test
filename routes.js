@@ -59,7 +59,7 @@ module.exports = [
 			payload: {
 				name: Hapi.types.String().required(),
 				id: Hapi.types.Number().optional().min(100).max(999999999),
-				file: Hapi.types.Object().optional()
+				file: true
 			}
 		}
 	}
