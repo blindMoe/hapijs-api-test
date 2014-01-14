@@ -55,11 +55,7 @@ module.exports = [
 	config: {
 		handler: Handlers.fileUpload,
 		validate: {
-			payload: {
-				name: Hapi.types.String().required(),
-				id: Hapi.types.Number().optional().min(100).max(999999999),
-				file: true
-			}
+			payload: true
 		}
 	}
 }]

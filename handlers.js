@@ -1,3 +1,5 @@
+var Fs = require('fs');
+
 var models = require('./models.js');
 
 
@@ -97,13 +99,15 @@ exports.delProduct = function(request, reply) {
 
 
 exports.fileUpload = function(request, reply) {
-    //console.log("rawPayload: " + request.rawPayload);
-    console.log("Received POST from " + request.payload.name + "; id=" + (request.payload.id || 'anon'));
 
+    console.log("Received POST from " + request.payload.name + "; id=" + (request.payload.id || 'anon'));
+    console.log(request.payload);
     if (request.payload && request.payload.file) {
+
         var f = request.payload.file;
         console.log("uploadFile " + f.originalFilename + " (" + f.size + " bytes) at " + f.path);
         console.log("that you should persist to storage and remove from temp folder");
+
         // Use fs for this one: http://nodejs.org/api/fs.html
         Fs.unlink(f.path, function (err) {
             if (err) throw err;
