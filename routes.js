@@ -1,5 +1,4 @@
 var Hapi = require('hapi');
-var mongoose = require('mongoose');
 var Fs = require('fs');
 var Handlers = require('./handlers.js');
 
